@@ -73,13 +73,6 @@ static NSString *kApiUrl = @"https://api.vk.com/method/";
 	
 	_permissons = permisions;
 	_delegate = delegate;
-	
-	/*NSDictionary *params = [NSDictionary dictionaryWithObjectsAndKeys:
-							_app_id,@"app",
-							@"touch",@"layout",
-							@"browser",@"type",
-							_permissons,@"settings",nil];
-	NSString *_url = [VKURLParser constructURL:@"http://vk.com/login.php" params:params];*/
     
     NSDictionary *params = [NSDictionary dictionaryWithObjectsAndKeys:
                             _app_id,  @"client_id",
@@ -112,8 +105,6 @@ static NSString *kApiUrl = @"https://api.vk.com/method/";
     self.user_id = nil;
 	
 	NSHTTPCookieStorage* cookies = [NSHTTPCookieStorage sharedHTTPCookieStorage];
-	/*NSArray* vkcookies = [cookies cookiesForURL:
-								[NSURL URLWithString:@"http://vkontakte.ru/login.php"]];*/
 	
 	for (NSHTTPCookie* cookie in [cookies cookies]) {
 		if ([[cookie domain] rangeOfString:@"vkontakte"].location != NSNotFound ||

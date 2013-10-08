@@ -57,14 +57,6 @@ static CGFloat kCONTENT_RADIUS_ipad = 4.0;
 	return self;
 }
 
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect {
-    // Drawing code.
-}
-*/
-
 - (void)showAnimationDidStop:(NSString *)animationID finished:(NSNumber *)finished context:(void *)context
 {
 	NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:_url]];

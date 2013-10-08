@@ -69,8 +69,6 @@
     }
 }
 
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
 - (void)drawRect:(CGRect)rect
 {
     CGContextRef context = UIGraphicsGetCurrentContext();
@@ -85,8 +83,6 @@
 	CGContextAddArc(context, CGRectGetMinX(rect) + radius, CGRectGetMinY(rect) + radius, radius, (float)M_PI, 3 * (float)M_PI / 2, 0);
 	CGContextClosePath(context);
 	CGContextFillPath(context);
-    
-    
 }
 
 @end
