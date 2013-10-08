@@ -8,15 +8,21 @@
 
 #import "VKInterfaceHolder.h"
 
-#import "SynthesizeSingleton.h"
-
 #define VKAPPID                     @"3066492"
 
 @implementation VKInterfaceHolder
 
 @synthesize vk = _vk;
 
-SYNTHESIZE_SINGLETON_FOR_CLASS(VKInterfaceHolder);
++(VKInterfaceHolder*)sharedVKInterfaceHolder
+{
+    static VKInterfaceHolder *instance;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        instance = [[VKInterfaceHolder alloc] init];
+    });
+    return instance;
+}
 
 -(VKontakte*)vk
 {
