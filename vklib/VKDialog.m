@@ -226,20 +226,10 @@ static CGFloat kCONTENT_RADIUS_ipad = 4.0;
     
 	
 	CGRect borderRect;
-	/*if (UI_USER_INTERFACE_IDIOM()==UIUserInterfaceIdiomPad)
-	{
-		borderRect.size.width = 0.1*_backgroundView.frame.size.width;
-		borderRect.size.height = 0.1*_backgroundView.frame.size.height;
-		borderRect.origin.x = (_backgroundView.frame.size.width-borderRect.size.width)*0.5;
-		borderRect.origin.y = (_backgroundView.frame.size.height-borderRect.size.height)*0.5;		
-	}
-	else*/
-	{
-		borderRect = CGRectMake(0, 
-                                kPadding+kPadding*0.5,
-                                _backgroundView.frame.size.width,
-                                _backgroundView.frame.size.height-2*kPadding);
-	}
+    borderRect = CGRectMake(0,
+                            kPadding+kPadding*0.5,
+                            _backgroundView.frame.size.width,
+                            _backgroundView.frame.size.height-2*kPadding);
 	
 	_border = [[UIView alloc] initWithFrame:borderRect];
 	_border.backgroundColor = [UIColor colorWithWhite:0.3 alpha:0.8];
@@ -258,7 +248,6 @@ static CGFloat kCONTENT_RADIUS_ipad = 4.0;
 	[UIView setAnimationDelegate:self];
 	[UIView setAnimationDidStopSelector:@selector(showAnimationDidStop:finished:context:)];
 	_border.alpha = 1.0;
-	//_border.frame = borderRect;
 	[UIView commitAnimations];
     
     UIView *contentView = [[UIView alloc] initWithFrame:CGRectMake(kBorderWidth,
