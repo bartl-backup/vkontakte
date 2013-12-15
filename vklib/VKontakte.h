@@ -11,10 +11,6 @@
 #import "VKLoginDialog.h"
 #import "VKRequest.h"
 
-extern NSString* const VKDidLogoutMessage;
-extern NSString* const VKNeedReloginMessage;
-extern NSString* const VKDidLoginMessage;
-
 @class VKontakte;
 @protocol VKontankteDelegate<NSObject>
 @optional

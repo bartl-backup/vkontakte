@@ -12,10 +12,6 @@
 
 #import <CommonCrypto/CommonDigest.h>
 
-NSString* const VKDidLogoutMessage = @"VKDidLogoutMessage";
-NSString* const VKNeedReloginMessage = @"VKNeedReloginMessage";
-NSString* const VKDidLoginMessage = @"VKDidLoginMessage";
-
 static NSString *kApiUrl = @"https://api.vk.com/method/";
 
 @implementation VKontakte
@@ -111,9 +107,6 @@ static NSString *kApiUrl = @"https://api.vk.com/method/";
 			[[cookie domain] rangeOfString:@"vk.com"].location != NSNotFound)
 			[cookies deleteCookie:cookie];
 	}
-    
-    [[NSNotificationCenter defaultCenter] postNotificationName:VKDidLogoutMessage
-                                                        object:self];
 }
 
 -(VKRequest*)requestWithParams:(NSMutableDictionary*)params
