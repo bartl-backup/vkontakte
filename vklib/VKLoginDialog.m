@@ -77,7 +77,7 @@
         return YES;
     
     NSRegularExpression *rx = [NSRegularExpression regularExpressionWithPattern:@"\\{ *\"[a-zA-Z0-9]+\" *: *\".+?\\}|^[ \\n]*Login success[ \\n]*$|^[ \\n]*Login failure[ \\n]*$" options:NSRegularExpressionCaseInsensitive error:nil];
-    int n = [rx numberOfMatchesInString:body options:0 range:NSMakeRange(0,body.length)];
+    NSUInteger n = [rx numberOfMatchesInString:body options:0 range:NSMakeRange(0,body.length)];
     
     return n!=0;
 }
