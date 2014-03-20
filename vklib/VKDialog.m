@@ -355,9 +355,10 @@ static CGFloat kCONTENT_RADIUS_ipad = 4.0;
         CGPoint offset = [self getWindowOffset];
         
         CGFloat duration = [[n.userInfo valueForKey:UIKeyboardAnimationDurationUserInfoKey] floatValue];
+        __weak typeof(self) pself = self;
         [UIView animateWithDuration:duration
                      animations:^{
-                         [self offsetWindow:offset];
+                         [pself offsetWindow:offset];
                      }];
         
         oldOffset = offset;
@@ -377,10 +378,11 @@ static CGFloat kCONTENT_RADIUS_ipad = 4.0;
         offset.x*=-1;
         offset.y*=-1;
         
+        __weak typeof(self) pself = self;
         CGFloat duration = [[n.userInfo valueForKey:UIKeyboardAnimationDurationUserInfoKey] floatValue];
         [UIView animateWithDuration:duration
                          animations:^{
-                             [self offsetWindow:offset];
+                             [pself offsetWindow:offset];
                          }];
         
         oldOffset = CGPointZero;
@@ -435,9 +437,10 @@ static CGFloat kCONTENT_RADIUS_ipad = 4.0;
     if (!CGPointEqualToPoint(CGPointZero, oldOffset))
     {
         oldOffset = [self getWindowOffset];
+        __weak typeof(self) pself = self;
         [UIView animateWithDuration:0.2
                          animations:^{
-                             [self offsetWindow:oldOffset];
+                             [pself offsetWindow:oldOffset];
                          }];        
     }
 }
