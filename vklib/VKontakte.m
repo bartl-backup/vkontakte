@@ -163,8 +163,6 @@ static NSString *kApiUrl = @"https://api.vk.com/method/";
 										  method:method
 										delegate:delegate];
 	_request.identifer = identifer;
-	
-	[_request sendRequest];
     
     return _request;
 }
