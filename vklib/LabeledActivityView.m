@@ -29,7 +29,7 @@
         [activityView startAnimating];
         
         label = [[UILabel alloc] initWithFrame:CGRectZero];
-        label.font = [UIFont boldSystemFontOfSize:14.0];
+        label.font = [UIFont systemFontOfSize:14.0];
         label.textColor = [UIColor whiteColor];
         label.adjustsFontSizeToFitWidth = NO;
         label.backgroundColor = [UIColor clearColor];
