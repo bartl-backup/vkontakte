@@ -397,8 +397,14 @@ static CGFloat kCONTENT_RADIUS_ipad = 4.0;
 		_titleLabel.text = _title;
 }
 
+-(void)cancelClicked
+{
+    
+}
+
 -(void)cancel
 {
+    [self cancelClicked];
 	[self dismiss];
 }
 

@@ -15,6 +15,7 @@
 @optional
 -(void)vkDialogDidLogin:(VKLoginDialog*)dialog withParams:(NSDictionary*)params;
 -(void)vkDialogDidNotLogin:(VKLoginDialog*)dialog;
+-(void)vkDialogLoginCanceled:(VKLoginDialog*)dialog;
 @end
 
 

@@ -41,9 +41,18 @@
 	[self dismiss];
 }
 
--(void)cancel
+-(void)dialogCanceled
 {
-	[self dialogFailure];
+    if ([_delegate respondsToSelector:@selector(vkDialogLoginCanceled:)])
+        [_delegate vkDialogLoginCanceled:self];
+    
+    [self dismiss];
+}
+
+-(void)cancelClicked
+{
+    if ([_delegate respondsToSelector:@selector(vkDialogLoginCanceled:)])
+        [_delegate vkDialogLoginCanceled:self];
 }
 
 -(BOOL)shouldLoadRequest:(NSURLRequest*)request navigationType:(UIWebViewNavigationType)navigationType
@@ -63,7 +72,10 @@
 		else if ([[url absoluteString] rangeOfString:@"access_denied"].location!=NSNotFound ||
                  [[url absoluteString] rangeOfString:@"error"].location!=NSNotFound)
 		{
-			[self dialogFailure];
+            if ([[url absoluteString] rangeOfString:@"user_denied"].location!=NSNotFound)
+                [self dialogCanceled];
+            else
+                [self dialogFailure];
 			return NO;
 		}
 	}

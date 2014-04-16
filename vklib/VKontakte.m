@@ -194,12 +194,12 @@ static NSString *kApiUrl = @"https://api.vk.com/method/";
         [_delegate vkontakteDidLogin:self.user_id vkInterface:self];
 }
 
--(void)didNotLogin
+-(void)didNotLogin:(BOOL)canceled
 {
     _authorizing = NO;
     
-    if ([_delegate respondsToSelector:@selector(vkontakteDidNotLogin)])
-		[_delegate vkontakteDidNotLogin];
+    if ([_delegate respondsToSelector:@selector(vkontakteDidNotLogin:)])
+		[_delegate vkontakteDidNotLogin:canceled];
 }
 
 -(void)vkDialogDidLogin:(VKLoginDialog*)dialog withParams:(NSDictionary*)params
@@ -209,7 +209,12 @@ static NSString *kApiUrl = @"https://api.vk.com/method/";
 
 -(void)vkDialogDidNotLogin:(VKLoginDialog*)dialog
 {
-	[self didNotLogin];
+	[self didNotLogin:NO];
+}
+
+-(void)vkDialogLoginCanceled:(VKLoginDialog *)dialog
+{
+    [self didNotLogin:YES];
 }
 
 #pragma mark - NSURLConnectionDelegate

@@ -15,7 +15,7 @@
 @protocol VKontankteDelegate<NSObject>
 @optional
 -(void)vkontakteDidLogin:(NSString*)userId vkInterface:(VKontakte*)vk;
--(void)vkontakteDidNotLogin;
+-(void)vkontakteDidNotLogin:(BOOL)canceled;
 @end
 
 

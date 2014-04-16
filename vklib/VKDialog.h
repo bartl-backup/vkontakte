@@ -22,5 +22,6 @@
 
 -(BOOL)isBadContent:(NSString *)body;
 -(void)gotError:(NSError*)error;
+-(void)cancelClicked;
 
 @end
