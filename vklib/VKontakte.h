@@ -35,20 +35,20 @@
 - (void)authorize:(NSString*)permisions andDelegate:(id<VKontankteDelegate>)delegate;
 - (void)logout;
 
--(VKRequest*)requestWithParams:(NSMutableDictionary*)params
+-(VKRequest*)requestWithParams:(NSDictionary*)params
 			   identifer:(int)identifer
 				delegate:(id<VKRequestDelegate>)delegate;
--(VKRequest*)requestWithParams:(NSMutableDictionary*)params
+-(VKRequest*)requestWithParams:(NSDictionary*)params
 			   identifer:(int)identifer
 				  method:(NSString*)method
 				delegate:(id<VKRequestDelegate>)delegate;
--(VKRequest*)requestWithParams:(NSMutableDictionary*)params
+-(VKRequest*)requestWithParams:(NSDictionary*)params
 			   identifer:(int)identifer
 				  method:(NSString*)method
 				  apiUrl:(NSString*)apiUrl
 				delegate:(id<VKRequestDelegate>)delegate;
 
--(VKRequest*)genericRequestWithParams:(NSMutableDictionary *)params
+-(VKRequest*)genericRequestWithParams:(NSDictionary *)params
 					  identifer:(int)identifer
 						 method:(NSString*)method
 						 apiUrl:(NSString*)apiUrl

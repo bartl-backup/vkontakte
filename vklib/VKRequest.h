@@ -12,10 +12,12 @@
 
 @protocol VKRequestDelegate<NSObject>
 
-- (void)vk_requestLoading:(VKRequest *)request;
-- (void)vk_request:(VKRequest *)request didReceiveResponse:(NSURLResponse *)response;
 - (void)vk_request:(VKRequest *)request didFailWithError:(NSError *)error;
 - (void)vk_request:(VKRequest *)request didLoad:(id)result;
+
+@optional
+- (void)vk_requestLoading:(VKRequest *)request;
+- (void)vk_request:(VKRequest *)request didReceiveResponse:(NSURLResponse *)response;
 
 @end
 

@@ -107,58 +107,61 @@ static NSString *kApiUrl = @"https://api.vk.com/method/";
 	}
 }
 
--(VKRequest*)requestWithParams:(NSMutableDictionary*)params
+-(VKRequest*)requestWithParams:(NSDictionary*)in_params
 				identifer:(int)identifer
 					  delegate:(id<VKRequestDelegate>)delegate
 {
-	return [self requestWithParams:params
+	return [self requestWithParams:in_params
 				  identifer:identifer
 							method:@"GET"
 						  delegate:delegate];
 }
 
--(VKRequest*)requestWithParams:(NSMutableDictionary*)params
+-(VKRequest*)requestWithParams:(NSDictionary*)in_params
 				identifer:(int)identifer
 						method:(NSString*)method
 					  delegate:(id<VKRequestDelegate>)delegate
 {
-	return [self requestWithParams:params
+	return [self requestWithParams:in_params
 				  identifer:identifer
 					 method:method
 					 apiUrl:kApiUrl
 				   delegate:delegate];
 }
 
--(VKRequest*)requestWithParams:(NSMutableDictionary*)params
+-(VKRequest*)requestWithParams:(NSDictionary*)in_params
 				identifer:(int)identifer
 				  method:(NSString*)method
 				  apiUrl:(NSString*)apiUrl
 				delegate:(id<VKRequestDelegate>)delegate
 {
-	[params setValue:_access_token forKey:@"access_token"];
+    NSMutableDictionary *mutableParams = [in_params mutableCopy];
+	[mutableParams setValue:_access_token forKey:@"access_token"];
 	
 	
-	return [self genericRequestWithParams:params
+	return [self genericRequestWithParams:mutableParams
 						 identifer:identifer
 							method:method
 							apiUrl:apiUrl
 						  delegate:delegate];
 }
 
--(VKRequest*)genericRequestWithParams:(NSMutableDictionary *)params
+-(VKRequest*)genericRequestWithParams:(NSDictionary *)in_params
 					  identifer:(int)identifer
 						 method:(NSString*)method
 						 apiUrl:(NSString*)apiUrl
 					   delegate:(id<VKRequestDelegate>)delegate
 {
-    NSString *methodName = [params objectForKey:@"method"];
+    NSMutableDictionary *mutableParams = [in_params mutableCopy];
+    
+    NSString *methodName = [in_params objectForKey:@"method"];
     if (methodName)
     {
         apiUrl = [apiUrl stringByAppendingString:methodName];
-        [params removeObjectForKey:@"method"];
+        [mutableParams removeObjectForKey:@"method"];
     }
     
-	VKRequest* _request = [[VKRequest alloc] initWithParams:params
+	VKRequest* _request = [[VKRequest alloc] initWithParams:mutableParams
 										 baseUrl:apiUrl
 										  method:method
 										delegate:delegate];
