@@ -10,7 +10,8 @@
 
 #import "URLParser.h"
 
-static NSString *kApiUrl = @"https://api.vk.com/method/";
+static NSString * const kApiUrl = @"https://api.vk.com/method/";
+static NSString * const vk_api_v = @"5.21";
 
 @implementation VKontakte
 {
@@ -136,8 +137,8 @@ static NSString *kApiUrl = @"https://api.vk.com/method/";
 				delegate:(id<VKRequestDelegate>)delegate
 {
     NSMutableDictionary *mutableParams = [in_params mutableCopy];
-	[mutableParams setValue:_access_token forKey:@"access_token"];
-	
+    mutableParams[@"access_token"] = _access_token;
+    mutableParams[@"v"] = vk_api_v;	
 	
 	return [self genericRequestWithParams:mutableParams
 						 identifer:identifer
