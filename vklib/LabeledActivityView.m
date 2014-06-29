@@ -58,7 +58,7 @@
     {
         CGPoint center = CGPointMake(self.bounds.size.width*0.5, self.bounds.size.height*0.5);;
         
-        float allHeight = activityView.frame.size.height+textSize.height+10;
+        CGFloat allHeight = activityView.frame.size.height+textSize.height+10;
         activityView.center = CGPointMake(center.x, floor(center.y - (allHeight - activityView.frame.size.height)*0.5));
         label.frame = CGRectMake(0, 0, textSize.width, textSize.height);
         label.center = CGPointMake(center.x, floor(center.y + (allHeight - textSize.height)*0.5));
@@ -73,14 +73,14 @@
 {
     CGContextRef context = UIGraphicsGetCurrentContext();
 
-	float radius = 10.0f;
+	CGFloat radius = 10.0f;
 	CGContextBeginPath(context);
 	CGContextSetGrayFillColor(context, 0.0f, self.opacity);
 	CGContextMoveToPoint(context, CGRectGetMinX(rect) + radius, CGRectGetMinY(rect));
-	CGContextAddArc(context, CGRectGetMaxX(rect) - radius, CGRectGetMinY(rect) + radius, radius, 3 * (float)M_PI / 2, 0, 0);
-	CGContextAddArc(context, CGRectGetMaxX(rect) - radius, CGRectGetMaxY(rect) - radius, radius, 0, (float)M_PI / 2, 0);
-	CGContextAddArc(context, CGRectGetMinX(rect) + radius, CGRectGetMaxY(rect) - radius, radius, (float)M_PI / 2, (float)M_PI, 0);
-	CGContextAddArc(context, CGRectGetMinX(rect) + radius, CGRectGetMinY(rect) + radius, radius, (float)M_PI, 3 * (float)M_PI / 2, 0);
+	CGContextAddArc(context, CGRectGetMaxX(rect) - radius, CGRectGetMinY(rect) + radius, radius, 3 * (CGFloat)M_PI / 2, 0, 0);
+	CGContextAddArc(context, CGRectGetMaxX(rect) - radius, CGRectGetMaxY(rect) - radius, radius, 0, (CGFloat)M_PI / 2, 0);
+	CGContextAddArc(context, CGRectGetMinX(rect) + radius, CGRectGetMaxY(rect) - radius, radius, (CGFloat)M_PI / 2, (CGFloat)M_PI, 0);
+	CGContextAddArc(context, CGRectGetMinX(rect) + radius, CGRectGetMinY(rect) + radius, radius, (CGFloat)M_PI, 3 * (CGFloat)M_PI / 2, 0);
 	CGContextClosePath(context);
 	CGContextFillPath(context);
 }

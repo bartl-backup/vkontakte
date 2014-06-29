@@ -36,20 +36,20 @@
 - (void)logout;
 
 -(VKRequest*)requestWithParams:(NSDictionary*)params
-			   identifer:(int)identifer
+			   identifer:(NSInteger)identifer
 				delegate:(id<VKRequestDelegate>)delegate;
 -(VKRequest*)requestWithParams:(NSDictionary*)params
-			   identifer:(int)identifer
+			   identifer:(NSInteger)identifer
 				  method:(NSString*)method
 				delegate:(id<VKRequestDelegate>)delegate;
 -(VKRequest*)requestWithParams:(NSDictionary*)params
-			   identifer:(int)identifer
+			   identifer:(NSInteger)identifer
 				  method:(NSString*)method
 				  apiUrl:(NSString*)apiUrl
 				delegate:(id<VKRequestDelegate>)delegate;
 
 -(VKRequest*)genericRequestWithParams:(NSDictionary *)params
-					  identifer:(int)identifer
+					  identifer:(NSInteger)identifer
 						 method:(NSString*)method
 						 apiUrl:(NSString*)apiUrl
 					   delegate:(id<VKRequestDelegate>)delegate;

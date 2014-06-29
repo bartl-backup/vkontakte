@@ -12,7 +12,7 @@
 
 -(BOOL)vk_needRelogin
 {
-    return [[[self.userInfo valueForKey:@"error"] valueForKey:@"error_code"] intValue] == 5;
+    return [[[self.userInfo valueForKey:@"error"] valueForKey:@"error_code"] integerValue] == 5;
 }
 
 @end

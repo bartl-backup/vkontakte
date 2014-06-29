@@ -32,6 +32,6 @@
 -(void)sendRequest;
 -(void)cancel;
 
-@property (nonatomic) int identifer;
+@property (nonatomic) NSInteger identifer;
 
 @end

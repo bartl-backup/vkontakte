@@ -13,11 +13,11 @@ static NSString* kUserAgent = @"VKontakte";
 static const NSTimeInterval kTimeoutInterval = 180.0;
 static NSString* kStringBoundary = @"3i2ndDfv2rTHiSisAbouNdArYfORhtTPEefj3q2f";
 
-static const int kGeneralErrorCode = 10000;
+static const NSInteger kGeneralErrorCode = 10000;
 
 @implementation VKRequest
 {
-	int _identifer;
+	NSInteger _identifer;
 	
 	id<VKRequestDelegate> _delegate;
 	
@@ -175,7 +175,7 @@ static const int kGeneralErrorCode = 10000;
 		{
 			if (error != nil) 
 			{
-				*error = [self formError:[[result objectForKey:@"error_code"] intValue] userInfo:result];
+				*error = [self formError:[[result objectForKey:@"error_code"] integerValue] userInfo:result];
 			}
 			return nil;
 		}

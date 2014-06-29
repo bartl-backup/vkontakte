@@ -183,9 +183,9 @@ static CGFloat kCONTENT_RADIUS_ipad = 4.0;
     
 	UIView *view;
     
-    float kBorderWidth;
-    float BORDER_RADIUS;
-    float CONTENT_RADIUS;
+    CGFloat kBorderWidth;
+    CGFloat BORDER_RADIUS;
+    CGFloat CONTENT_RADIUS;
     CGRect startRect;
     if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone)
     {
@@ -313,8 +313,8 @@ static CGFloat kCONTENT_RADIUS_ipad = 4.0;
 
 -(CGPoint)getWindowOffset
 {
-    float yOffset = 150;
-    float xOffset = 150;
+    CGFloat yOffset = 150;
+    CGFloat xOffset = 150;
     
     UIInterfaceOrientation interfaceOrientation = [UIApplication sharedApplication].statusBarOrientation;
     
@@ -434,11 +434,11 @@ static CGFloat kCONTENT_RADIUS_ipad = 4.0;
 {
     return;
     
-    int width = (int)_webview.frame.size.width;
+    NSInteger width = (NSInteger)_webview.frame.size.width;
     
     [_webview stringByEvaluatingJavaScriptFromString:[NSString stringWithFormat:
-                                                      @"document.getElementById('touch_layout').style.width=\"%dpx\";"
-                                                       "document.getElementById('login_submit').style.width=\"%dpx\";", width, width-46]];
+                                                      @"document.getElementById('touch_layout').style.width=\"%ldpx\";"
+                                                       "document.getElementById('login_submit').style.width=\"%ldpx\";", (long)width, width-46]];
     
     if (!CGPointEqualToPoint(CGPointZero, oldOffset))
     {
