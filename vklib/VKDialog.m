@@ -71,6 +71,9 @@ static CGFloat kCONTENT_RADIUS_ipad = 4.0;
 }
 
 - (CGAffineTransform)transformForOrientation {
+    if ((floor(NSFoundationVersionNumber) > NSFoundationVersionNumber_iOS_7_1))
+        return CGAffineTransformIdentity;
+    
     UIInterfaceOrientation orientation = [UIApplication sharedApplication].statusBarOrientation;
     if (orientation == UIInterfaceOrientationLandscapeLeft) {
         return CGAffineTransformMakeRotation(M_PI*1.5);
