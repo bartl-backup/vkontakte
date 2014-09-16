@@ -11,6 +11,6 @@
 @interface LabeledActivityView : UIView
 
 @property (nonatomic,strong) NSString *text;
-@property (nonatomic) float opacity;
+@property (nonatomic) CGFloat opacity;
 
 @end

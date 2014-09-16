@@ -109,7 +109,7 @@ static NSString * const vk_api_v = @"5.21";
 }
 
 -(VKRequest*)requestWithParams:(NSDictionary*)in_params
-				identifer:(int)identifer
+				identifer:(NSInteger)identifer
 					  delegate:(id<VKRequestDelegate>)delegate
 {
 	return [self requestWithParams:in_params
@@ -119,7 +119,7 @@ static NSString * const vk_api_v = @"5.21";
 }
 
 -(VKRequest*)requestWithParams:(NSDictionary*)in_params
-				identifer:(int)identifer
+				identifer:(NSInteger)identifer
 						method:(NSString*)method
 					  delegate:(id<VKRequestDelegate>)delegate
 {
@@ -131,7 +131,7 @@ static NSString * const vk_api_v = @"5.21";
 }
 
 -(VKRequest*)requestWithParams:(NSDictionary*)in_params
-				identifer:(int)identifer
+				identifer:(NSInteger)identifer
 				  method:(NSString*)method
 				  apiUrl:(NSString*)apiUrl
 				delegate:(id<VKRequestDelegate>)delegate
@@ -148,7 +148,7 @@ static NSString * const vk_api_v = @"5.21";
 }
 
 -(VKRequest*)genericRequestWithParams:(NSDictionary *)in_params
-					  identifer:(int)identifer
+					  identifer:(NSInteger)identifer
 						 method:(NSString*)method
 						 apiUrl:(NSString*)apiUrl
 					   delegate:(id<VKRequestDelegate>)delegate
@@ -180,7 +180,7 @@ static NSString * const vk_api_v = @"5.21";
     NSString *expTime = [params valueForKey:@"expires_in"];
     if (expTime != nil) 
     {
-        int expVal = [expTime intValue];
+        NSInteger expVal = [expTime integerValue];
         if (expVal == 0) 
         {
             self.expirationDate = [NSDate distantFuture];
