@@ -436,22 +436,22 @@ static CGFloat kCONTENT_RADIUS_ipad = 4.0;
 -(void)updateWebViewOrientation
 {
     return;
-    
-    NSInteger width = (NSInteger)_webview.frame.size.width;
-    
-    [_webview stringByEvaluatingJavaScriptFromString:[NSString stringWithFormat:
-                                                      @"document.getElementById('touch_layout').style.width=\"%ldpx\";"
-                                                       "document.getElementById('login_submit').style.width=\"%ldpx\";", (long)width, width-46]];
-    
-    if (!CGPointEqualToPoint(CGPointZero, oldOffset))
-    {
-        oldOffset = [self getWindowOffset];
-        __weak typeof(self) pself = self;
-        [UIView animateWithDuration:0.2
-                         animations:^{
-                             [pself offsetWindow:oldOffset];
-                         }];        
-    }
+//    
+//    NSInteger width = (NSInteger)_webview.frame.size.width;
+//    
+//    [_webview stringByEvaluatingJavaScriptFromString:[NSString stringWithFormat:
+//                                                      @"document.getElementById('touch_layout').style.width=\"%ldpx\";"
+//                                                       "document.getElementById('login_submit').style.width=\"%ldpx\";", (long)width, (long)width-46]];
+//    
+//    if (!CGPointEqualToPoint(CGPointZero, oldOffset))
+//    {
+//        oldOffset = [self getWindowOffset];
+//        __weak typeof(self) pself = self;
+//        [UIView animateWithDuration:0.2
+//                         animations:^{
+//                             [pself offsetWindow:oldOffset];
+//                         }];        
+//    }
 }
 
 -(BOOL)shouldLoadRequest:(NSURLRequest*)request navigationType:(UIWebViewNavigationType)navigationType
