@@ -323,6 +323,7 @@ static CGFloat kCONTENT_RADIUS_ipad = 4.0;
     
     switch (interfaceOrientation)
     {
+        case UIInterfaceOrientationUnknown:
         case UIInterfaceOrientationPortrait:
             xOffset = 0;
             yOffset = -150;

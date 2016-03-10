@@ -52,7 +52,10 @@
 
 - (void)layoutSubviews
 {
-    CGSize textSize = [self.text sizeWithFont:label.font];
+    CGSize textSize = [self.text boundingRectWithSize:self.bounds.size
+                                              options:0
+                                           attributes:@{NSFontAttributeName: label.font}
+                                              context:nil].size;
     
     if (textSize.height>0.1)
     {
